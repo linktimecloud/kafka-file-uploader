@@ -1,0 +1,12 @@
+{
+  "vip": "5.0.0.1:5001",
+  "cpus": 0.3,
+  "mem": 384,
+  "instances": 1,
+  "port": 5001,
+  "workdir": "/usr/src/kafka-file-uploader",
+  "pip-mirror": true,
+  "env": "DEBUG",
+  "kafka-topic": "test",
+  "zk-hosts": "leader.mesos:2181"
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Kafka File Uploader</title>
+<h1>Kafka File Uploader</h1>
+<a href="{{ url_for('upload') }}">Upload</a> /
+<a href="{{ url_for('manage') }}">Produce</a>
+<hr>
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{ form.file(multiple="multiple")}}
+    {% for error in form.file.errors %}
+        <span style="color: red;">{{ error }}</span>
+    {% endfor %}
+    {{ form.submit }}
+</form>
+
+{% if success %}
+<br>
+<span style="color: green;">Upload Success!</span>
+{% endif %}
+
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Notes</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>The maximum file size for uploading is <strong>64 MB</strong>.</li>
+                <li>Only file types (<strong>TXT, CSV, JSON</strong>) are supported.</li>
+                <li>REST API is available: <code class="codeblock">curl -H "enctype: multipart/form-data" -F file=@file HOST_IP:5001/api/upload</code>.</li>
+            </ul>
+        </div>
+</div>
