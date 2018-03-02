@@ -1,5 +1,9 @@
 # Pycharm
-.idea
+.idea/
+
+# compressed files
+*.tgz
+*.zip
 
 # Distribution / packaging
 .Python
