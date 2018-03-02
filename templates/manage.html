@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>Kafka File Producer</title>
+<h1>Kafka File Producer</h1>
+<a href="{{ url_for('upload') }}">Upload</a> /
+<a href="{{ url_for('manage') }}">Produce</a>
+<hr>
+
+{% for file in files %}
+    - &emsp;{{ file }}&emsp;&emsp;
+    <a href="{{ url_for('produce_file', filename=file) }}">Produce</a>&ensp;
+    <a href="{{ url_for('browse_file', filename=file) }}">Browse</a>&ensp;
+    <a href="{{ url_for('delete_file', filename=file) }}">Delete</a><br>
+{% endfor %}
+
+{% if success %}
+<br>
+<span style="color: green;">Produce Success!&ensp;[{{ message }}]</span>
+{% endif %}
+
+{% if fail %}
+<br>
+<span style="color: red;">Produce Fail!&ensp;[{{ message }}]</span>
+{% endif %}

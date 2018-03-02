@@ -1,0 +1,17 @@
+FROM python:2
+
+WORKDIR {{workdir}}
+
+ADD utils utils
+ADD templates templates
+ADD app.py ./
+ADD requirements.txt ./
+
+RUN mkdir ./data
+
+RUN pip install --no-cache-dir -r requirements.txt \
+  {{#pip-mirror}}
+  --trusted-host https://pypi.tuna.tsinghua.edu.cn/simple
+  {{/pip-mirror}}
+
+CMD ["python", "./app.py"]

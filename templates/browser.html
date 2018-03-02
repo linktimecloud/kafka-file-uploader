@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<script>
+  function resizeIframe(obj) {
+    obj.style.width = obj.contentWindow.document.body.scrollWidth + 'px';
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
+
+<title>Kafka File Browser</title>
+<h1>Kafka File Browser</h1>
+<a href="{{ url_for('upload') }}">Upload</a> /
+<a href="{{ url_for('manage') }}">Produce</a>
+<hr>
+
+<p>URL: {{ file_url }}</p>
+<iframe src="{{ file_url }}" width="100%" onload="resizeIframe(this)"></iframe>
