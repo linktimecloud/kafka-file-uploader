@@ -1,0 +1,5 @@
+Flask==0.12.2
+Flask-Uploads==0.2.1
+Flask-WTF==0.14.2
+kafka-python==1.4.1
+kazoo==2.4.0
